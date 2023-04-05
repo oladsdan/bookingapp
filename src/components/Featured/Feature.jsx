@@ -5,7 +5,7 @@ const Feature = ({images, country, countryprop }) => {
     
         <div className="featuredItem relative text-white rounded-[10px]  overflow-hidden z-[1] h-[250px]">
             <img src={images}
-                 alt=''
+                 alt='country-images'
                  className='w-[100%] object-cover' />
             <div className="featuredTitles absolute bottom-8 left-5 ">
                 <h1 className="text-3xl font-bold">{country}</h1>

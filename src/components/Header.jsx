@@ -5,6 +5,7 @@ import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { format } from 'date-fns'; // used for transferring the date into a readable strings
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({type}) => {
     
@@ -17,6 +18,7 @@ const Header = ({type}) => {
     
     
     const [openDate, setOpenDate] = useState(false)  
+    const [destination, setDestination] = useState("")  
 
     // used for the react-date-rangge library
     const [date, setDate] = useState([
@@ -34,6 +36,13 @@ const Header = ({type}) => {
         children: 0,
         room: 1,
     });
+
+    const navigate = useNavigate() // this is used to redirect our components to others
+
+    const handleSearch = () => {
+        navigate("/hotels", {state:{destination, date,options}})
+
+    }
 
 
     const active = "border-2 border-solid border-white rounded-[20px]"
@@ -82,7 +91,8 @@ const Header = ({type}) => {
                             items-center justify-around absolute py-[25px] px-0 rounded-[5px] bottom-[-25px] w-[100%] max-w-5xl">
                         <div className={headerSearchItem}>
                             <FontAwesomeIcon icon={faBed} className="text-gray-400" />
-                            <input type="text" placeholder="where are you going" className="border-none outline-0 text-gray-400" />
+                            <input type="text" placeholder="where are you going" className="border-none outline-0 text-gray-400" 
+                             onChange={(e) => setDestination(e.target.value)}/>
                         </div>
                         <div className={headerSearchItem}>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
                             <FontAwesomeIcon icon={faCalendarDays} className="text-gray-400" />
@@ -139,7 +149,7 @@ const Header = ({type}) => {
                             
                         </div>
                         <div className={headerSearchItem}>
-                            <button className="headerbtn">Search</button>
+                            <button className="bg-blue-500 text-white w-[100px] rounded-lg" onClick={handleSearch}>Search</button>
                         </div>
                     </div>
                     
