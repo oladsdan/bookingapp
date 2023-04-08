@@ -54,7 +54,7 @@ const Header = ({type}) => {
 
   return (
     <div className="bg-blue-col text-white flex justify-center relative">
-        <div className="w-[100%] max-w-5xl mt-5 mb-[100px]">
+        <div className={type ==="list" ? "mb-0":"w-[100%] max-w-5xl mt-5 mb-[100px]"}>
             <div className="flex gap-[40px] mb-[50px]">
                 <div className={`flex align-center gap-[10px] w-[90px] p-1 ${active} `}>
                     <FontAwesomeIcon icon={faBed} />

@@ -16,13 +16,23 @@ const HotelList = () => {
   const [options, setoptions] = useState(location.state.options)
   
 
+    //creating 8 search item components
+
+    function eightSearchItem() {
+      const searchitem = [];
+      for (let i=0; i<8; i++){
+        searchitem.push(<Searchitem />)
+      }
+      return searchitem
+    }
+
   return (
     <div>
       <Navbar />
       <Header type="list" />
       <div className="ListContainer flex justify-center mt-[20px]">
         <div className="listWrapper w-[100%] max-w-5xl flex gap-5">
-          <div className="listSearch flex-[1] bg-[#febb02] p-2 rounded-[10px] sticky top-2 ">
+          <div className="listSearch flex-[1] bg-[#febb02] p-2 rounded-[10px] sticky top-2 h-max">
             <h1 className="font-bold text-[20px] text-[#555] mb-2">Search</h1>
             <div className="flex flex-col gap-1 mb-[10px]">
               <label htmlFor='des'>Destination</label>
@@ -81,11 +91,11 @@ const HotelList = () => {
               </div>
               </div>
             </div>
-            <button className="p-2 bg-blue-col text-white rounded w-[100%]">Search</button>
+            <button className="p-2 bg-blue-500 text-white rounded w-[100%]">Search</button>
              
           </div>
           <div className="listResult flex-[3]">
-            <Searchitem />
+            {eightSearchItem()}
 
           </div>
         </div>
