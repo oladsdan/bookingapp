@@ -44,7 +44,7 @@ const HotelList = () => {
               <span onClick={()=>setOpenDate(!openDate)}  className="h-12 border-0 bg-white p-1 cursor-pointer"> {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
               {openDate && <DateRange onChange={item => setDate([item.selection])} 
               minDate={new Date()}
-              ramges={date}
+              ranges={date}
               />}
 
 
